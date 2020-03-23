@@ -6,6 +6,7 @@ import com.sun.xml.internal.xsom.impl.scd.ParseException;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
+import java.security.Key;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,7 +39,7 @@ public class Main {
                 counts.compute(word, (k, v) -> v != null ? v + 1 : 1)
         );
 
-        counts.forEach((k,v) -> System.out.println(String.format("%-20s Seen: %d times", k, v)));
+        counts.forEach((k,v) -> System.out.println(String.format("%-25s Seen: %d times", k, v)));
         //makingFile(counts.toString());
 
     }
