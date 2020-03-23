@@ -38,7 +38,7 @@ public class Main {
                 counts.compute(word, (k, v) -> v != null ? v + 1 : 1)
         );
 
-        counts.forEach((k,v) -> System.out.println(String.format("%-20s Seen: %d", k, v)));
+        counts.forEach((k,v) -> System.out.println(String.format("%-20s Seen: %d times", k, v)));
         //makingFile(counts.toString());
 
     }
