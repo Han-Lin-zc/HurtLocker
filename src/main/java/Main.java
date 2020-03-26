@@ -23,16 +23,14 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         String output = (new Main()).readRawDataToString();
-       // System.out.println(output);
 
-
-        final String regex = "[^a-zA-Z0-9_:/.]";
+        final String regex = "([^a-zA-Z0-9_:/.])";
         List<String> stringList = Pattern.compile(regex, Pattern.MULTILINE)
                 .splitAsStream(output)
                 .map(String::toLowerCase)
                 .collect(Collectors.toList());
 
-      //  stringList.forEach(System.out::println);
+       // stringList.forEach(System.out::println);
 
         Map<String, Integer> counts = new LinkedHashMap<>();
         stringList.forEach(word ->
@@ -40,20 +38,5 @@ public class Main {
         );
 
         counts.forEach((k,v) -> System.out.println(String.format("%-25s Seen: %d times", k, v)));
-        //makingFile(counts.toString());
-
-    }
-
-
-    public static void makingFile(String text) {
-        try {
-            FileWriter file = new FileWriter(new File("Result.txt"));
-            file.write(text);
-            file.close();
-
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            System.exit(0);
-        }
     }
 }
